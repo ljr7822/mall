@@ -29,14 +29,29 @@ public class ResponseVo<T> {
         this.msg = msg;
     }
 
+    public ResponseVo(Integer status, T data) {
+        this.status = status;
+        this.data = data;
+    }
+
     /**
      * 成功时返回json格式数据(有参)
      *
      * @param <T>
      * @return
      */
-    public static <T> ResponseVo<T> success(String msg) {
+    public static <T> ResponseVo<T> successByMsg(String msg) {
         return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(), msg);
+    }
+
+    /**
+     * 成功时返回json格式数据(对象)
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> ResponseVo<T> success(T data) {
+        return new ResponseVo<>(ResponseEnum.SUCCESS.getCode(), data);
     }
 
     /**

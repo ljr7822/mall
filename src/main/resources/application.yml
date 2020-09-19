@@ -16,3 +16,8 @@ logging:
   pattern:
     console: "[%thread] %-5level %logger{36} - %msg%n"
 
+# session过期时间
+server:
+  servlet:
+    session:
+      timeout: 120
